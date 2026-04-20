@@ -20,14 +20,14 @@ This package is useful when multiple Capacitor apps need the same secure-storage
 ## Install
 
 ```bash
-npm install @khadar1020/capacitor-secure-storage
+npm install @khadarvsk/capacitor-secure-storage
 npx cap sync
 ```
 
 ## Usage
 
 ```ts
-import SecureKeyStorage from "@khadar1020/capacitor-secure-storage";
+import SecureKeyStorage from "@khadarvsk/capacitor-secure-storage";
 
 await SecureKeyStorage.set({
   key: "nostr_nsec",
@@ -48,7 +48,7 @@ await SecureKeyStorage.remove({
 In an app, it is usually nicer to wrap the raw plugin methods:
 
 ```ts
-import SecureKeyStorage from "@khadar1020/capacitor-secure-storage";
+import SecureKeyStorage from "@khadarvsk/capacitor-secure-storage";
 
 const NSEC_KEY = "nostr_nsec";
 

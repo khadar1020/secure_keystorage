@@ -1,5 +1,5 @@
 {
-  "name": "@khadar1020/capacitor-secure-storage",
+  "name": "@khadarvsk/capacitor-secure-storage",
   "version": "0.0.1",
   "description": "Capacitor plugin for Android secure key/value storage using Android Keystore-backed EncryptedSharedPreferences.",
   "type": "module",
