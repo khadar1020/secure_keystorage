@@ -1,0 +1,53 @@
+{
+  "name": "@khadar1020/capacitor-secure-storage",
+  "version": "0.0.1",
+  "description": "Capacitor plugin for Android secure key/value storage using Android Keystore-backed EncryptedSharedPreferences.",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "android/src/main/",
+    "android/build.gradle",
+    "dist/",
+    "README.md"
+  ],
+  "keywords": [
+    "capacitor",
+    "plugin",
+    "android",
+    "secure-storage",
+    "keystore",
+    "encryptedsharedpreferences"
+  ],
+  "homepage": "https://github.com/khadar1020/secure_keystorage#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khadar1020/secure_keystorage.git"
+  },
+  "bugs": {
+    "url": "https://github.com/khadar1020/secure_keystorage/issues"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run clean && npm run build",
+    "verify:android": "cd android && ./gradlew clean build",
+    "verify:web": "npm run build"
+  },
+  "peerDependencies": {
+    "@capacitor/core": "^8.0.0"
+  },
+  "devDependencies": {
+    "@capacitor/android": "^8.0.0",
+    "@capacitor/core": "^8.0.0",
+    "typescript": "^5.8.3"
+  },
+  "capacitor": {
+    "android": {
+      "src": "android",
+      "name": "SecureKeyStorage"
+    }
+  }
+}
