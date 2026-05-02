@@ -1,7 +1,7 @@
 {
   "name": "@khadarvsk/capacitor-secure-storage",
-  "version": "0.0.1",
-  "description": "Capacitor plugin for Android secure key/value storage using Android Keystore-backed EncryptedSharedPreferences.",
+  "version": "0.0.2",
+  "description": "Capacitor plugin for secure key/value storage using Android Keystore-backed EncryptedSharedPreferences and iOS Keychain.",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -9,6 +9,9 @@
   "files": [
     "android/src/main/",
     "android/build.gradle",
+    "ios/Sources",
+    "Package.swift",
+    "CapacitorSecureKeyStorage.podspec",
     "dist/",
     "README.md"
   ],
@@ -16,9 +19,11 @@
     "capacitor",
     "plugin",
     "android",
+    "ios",
     "secure-storage",
     "keystore",
-    "encryptedsharedpreferences"
+    "encryptedsharedpreferences",
+    "keychain"
   ],
   "homepage": "https://github.com/khadar1020/secure_keystorage#readme",
   "repository": {
@@ -34,6 +39,7 @@
     "clean": "rm -rf dist",
     "prepublishOnly": "npm run clean && npm run build",
     "verify:android": "cd android && ./gradlew clean build",
+    "verify:ios": "xcodebuild build -scheme CapacitorSecureKeyStorage -destination generic/platform=iOS",
     "verify:web": "npm run build"
   },
   "peerDependencies": {
@@ -42,12 +48,19 @@
   "devDependencies": {
     "@capacitor/android": "^8.0.0",
     "@capacitor/core": "^8.0.0",
+    "@capacitor/ios": "^8.0.0",
     "typescript": "^5.8.3"
   },
   "capacitor": {
+    "ios": {
+      "src": "ios"
+    },
     "android": {
       "src": "android",
       "name": "SecureKeyStorage"
     }
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

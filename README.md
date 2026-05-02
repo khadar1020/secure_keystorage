@@ -1,12 +1,16 @@
 # Capacitor Secure Key Storage Plugin
 
-Reusable Capacitor plugin for Android secure key/value storage using Android Keystore-backed `EncryptedSharedPreferences`.
+Reusable Capacitor plugin for secure key/value storage using:
+
+- Android Keystore-backed `EncryptedSharedPreferences`
+- iOS Keychain
 
 This package is useful when multiple Capacitor apps need the same secure-storage native implementation instead of copying plugin code into each repo.
 
 ## What It Supports
 
 - Android secure storage via `EncryptedSharedPreferences`
+- iOS secure storage via Keychain
 - Simple key/value API:
   - `set`
   - `get`
@@ -15,7 +19,7 @@ This package is useful when multiple Capacitor apps need the same secure-storage
 ## Current Platform Scope
 
 - Android: implemented
-- iOS: not implemented in this package yet
+- iOS: implemented
 
 ## Install
 
@@ -68,6 +72,6 @@ export async function removeNsec() {
 
 ## Notes
 
-- This package stores data securely only on Android.
+- This package stores data securely on Android and iOS native platforms.
 - If an app also supports web, it should provide its own fallback outside this package.
-- For full cross-platform secure storage, the next step would be adding iOS Keychain support.
+- On iOS, values are stored in the Keychain as generic-password items keyed by the provided `key`.
